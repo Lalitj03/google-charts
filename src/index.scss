@@ -1,0 +1,11 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #343;
+
+body {
+  background-color: teal;
+  font: 100% $font-stack;
+  color: $primary-color;
+  text-align: center;
+  align-items: center;
+  font-family: cursive;
+}
