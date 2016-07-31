@@ -1,33 +1,18 @@
 google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
 google.charts.setOnLoadCallback(drawpieChart);
+google.charts.setOnLoadCallback(drawlineChart);
+google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Season');
-  data.addColumn('number', 'Goals');
-  data.addRows([
-    ['2000-01', 13],
-    ['2001-02', 21],
-    ['2002-03', 21],
-    ['2003-04', 21],
-    ['2004-05', 18],
-    ['2005-06', 28],
-    ['2006-07', 20],
-    ['2007-08', 22],
-    ['2008-09', 31],
-    ['2009-10', 28],
-    ['2010-11', 23],
-    ['2011-12', 9],
-    ['2012-13', 16],
-    ['2013-14', 15],
-    ['2014-15', 2],
-    ['2015-16', 18],
-    ['2016-17', 13]
-  ]);
+  var jsonbarData = $.ajax({
+      url: "http://localhost:3000/app/jsonbarData.json",
+      dataType: "json",
+      async: false
+      }).responseText;
 
-  var barchart_options = {title:'Daviv Villa Goals Scored Per Season',
-                 width:800,
+  var data = new google.visualization.DataTable(jsonbarData);
+  var barchart_options = {title:'David Villa Goals Scored Per Season',
+                 width:600,
                  height:600,
                  legend: 'none'};
   var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
@@ -35,24 +20,47 @@ function drawChart() {
 }
 
 function drawpieChart() {
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Clubs');
-  data.addColumn('number', 'Goals');
-  data.addRows([
-    ['Sporting Gijón B', 14],
-    ['Sporting Gijón', 41],
-    ['Valencia', 129],
-    ['Barcelona', 48],
-    ['Atlético Madrid', 15],
-    ['Melbourne City (loan)', 2],
-    ['New York City', 31]
-  ]);
-  ['Zaragoza', 39],
+  var jsonpieData = $.ajax({
+      url: "http://localhost:3000/app/jsonpieData.json",
+      dataType: "json",
+      async: false
+      }).responseText;
 
+  var data = new google.visualization.DataTable(jsonpieData);
+
+  console.log(data);
   var options = {'title':'David Villa Goals Scored For Clubs',
-                 'width':800,
-                 'height':600};
+                 'width':600,
+                 'height':400,
+                  is3D: true,
+                  slices: {  4: {offset: 0.2},
+                             6: {offset: 0.3},
+                             1: {offset: 0.4},
+                             3: {offset: 0.5},
+                  },
+                };
 
   var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+  chart.draw(data, options);
+}
+
+function drawlineChart() {
+  var jsonlineData = $.ajax({
+      url: "http://localhost:3000/app/fdata.json",
+      dataType: "json",
+      async: false
+      }).responseText;
+  var data = new google.visualization.DataTable(jsonlineData);
+
+  var options = {
+    title: 'Company Performance',
+    width: 16000,
+    height: 1200,
+    curveType: 'function',
+    legend: { position: 'bottom' }
+  };
+
+  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
   chart.draw(data, options);
 }

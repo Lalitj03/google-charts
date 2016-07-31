@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width">
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" src="./app/pieChart.js"></script>
     <!-- <script type="text/javascript" src="./app/fifa2010table.js"></script> -->
 
@@ -16,8 +17,9 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div id="root" style="font-family: cursive"></div>
-    <div id="chart_div" style="width: 50%;"></div>
-    <td><div id="barchart_div" style="float: center; width: 50%;"></div></td>
+    <div id="chart_div"></div>
+    <div id="curve_chart"></div>
+    <td><div id="barchart_div"></div></td>
     <div id="visualization_div"></div>
   </body>
 </html>

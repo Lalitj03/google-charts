@@ -1,0 +1,16 @@
+{
+  "cols": [
+        {"id":"","label":"Clubs","pattern":"","type":"string"},
+        {"id":"","label":"Goals","pattern":"","type":"number"}
+      ],
+  "rows": [
+        {"c":[{"v":"Sporting Gijón B","f":null},{"v":14,"f":null}]},
+        {"c":[{"v":"Sporting Gijón","f":null},{"v":41,"f":null}]},
+        {"c":[{"v":"Zaragoza","f":null},{"v":39,"f":null}]},
+        {"c":[{"v":"Valencia","f":null},{"v":129,"f":null}]},
+        {"c":[{"v":"Barcelona","f":null},{"v":48,"f":null}]},
+        {"c":[{"v":"Atlético Madrid","f":null},{"v":15,"f":null}]},
+        {"c":[{"v":"Melbourne City (loan)","f":null},{"v":2,"f":null}]},
+        {"c":[{"v":"New York City","f":null},{"v":31,"f":null}]}
+      ]
+}
