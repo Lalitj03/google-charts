@@ -6,7 +6,9 @@
 using namespace std;
 
  int main(void) {
-   double n = 30000;
+   double n;
+   std::cout << "No. of rows" << std::endl;
+   std::cin >> n;
    string s;
    s = "hello";
    int x = 1;
