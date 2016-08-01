@@ -11,7 +11,7 @@ using namespace std;
    std::cin >> n;
    string s;
    s = "hello";
-   int x = 1;
+   int x = 1990;
    int y;
    int z;
    string w;
